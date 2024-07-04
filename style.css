@@ -305,7 +305,11 @@ body {
     }
   
     .responsive-container-block.leftSide {
-      max-width: 450px;
+      max-width: 550px;
+    }
+    .text-blk.subHeading{
+        font-size: 20px;
+        line-height: 40px;
     }
     .button{
         margin-left: 2%;
@@ -332,7 +336,6 @@ body {
     .number7img {
       display: none;
     }
-  
     .responsive-container-block.rightSide {
       width: 100%;
       height: 350px;
@@ -355,15 +358,15 @@ body {
     margin-left: 2%;
   }
     .text-blk.heading {
-      font-size: 25px;
+      font-size: 27px;
       line-height: 40px;
       max-width: 370px;
       width: auto;
     }
   
     .text-blk.subHeading {
-      font-size: 18px;
-      line-height: 25px;
+      font-size: 20px;
+      line-height: 30px;
     }
   
     .responsive-container-block.leftSide {
@@ -789,22 +792,94 @@ button, input {
   }
   
   .footer-distributed .footer-icons{
-    margin-top: 25px;
+    margin-top: 2px;
   }
   
-  .footer-distributed .footer-icons a{
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    background-color:  #1b1e20;
+  .wrapper {
+    display: inline-flex;
+    list-style: none;
+    height: 20px;
+    width: 100%;
+    padding-top: 4px;
+    justify-content: center;
+  }
+  
+  .wrapper .icon {
+    position: relative;
+    background: #fff;
     border-radius: 50%;
-  
-    font-size: 20px;
-    color: #ffffff;
-    text-align: center;
-    line-height: 35px;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
+  
+  .wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #fff;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper .facebook:hover,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip::before {
+    background: #1877f2;
+    color: #fff;
+  }
+  
+  .wrapper .whatsapp:hover,
+  .wrapper .whatsapp:hover .tooltip,
+  .wrapper .whatsapp:hover .tooltip::before {
+    background:limegreen;
+    color: #fff;
+  }
+  
+  .wrapper .instagram:hover,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+    background: #e4405f;
+    color: #fff;
+  }
+  
   
   /* Footer media queries */
   
