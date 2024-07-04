@@ -100,8 +100,6 @@ body {
     background-position-x: initial;
     background-position-y: initial;
     background-size: initial;
-    background-repeat-x: initial;
-    background-repeat-y: initial;
     background-attachment: initial;
     background-origin: initial;
     background-clip: initial;
@@ -587,6 +585,114 @@ button, input {
     }
   
   }
+  /* Testimonials styling */
+  .flex{
+    margin: 12px auto;
+    padding: 5px;
+    gap: 50px  10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+  }
+  .heading{
+    margin-top: 1%;
+  }
+  figure.snip1157 {
+    font-family: 'Raleway', Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 320px;
+    max-width: 410px;
+    width: 100%;
+    color: #333;
+    text-align: left;
+    box-shadow: none !important;
+    height: 210px;
+   
+  }
+  figure.snip1157 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+  }
+  
+  figure.snip1157 blockquote {
+    display: block;
+    border-radius: 12px;
+    position: relative;
+    background-color: #fafafa;
+    padding: 25px 50px 30px 50px;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.6em;
+    font-style: italic;
+  }
+  figure.snip1157 blockquote:before,
+  figure.snip1157 blockquote:after {
+    font-family: 'FontAwesome';
+    content: "\201C";
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.3;
+    font-style: normal;
+  }
+  figure.snip1157 blockquote:before {
+    top: 25px;
+    left: 20px;
+  }
+  figure.snip1157 blockquote:after {
+    content: "\201D";
+    right: 20px;
+    bottom: 0;
+  }
+  figure.snip1157 .arrow {
+    top: 100%;
+    width: 0;
+    height: 19%;
+    border-left: 0 solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid #fafafa;
+    margin: 0;
+    position: absolute;
+  }
+   /*  media queries */
+  
+   @media (max-width: 480px) {
+  
+    figure.snip1157 {
+      font:  18px sans-serif;
+      margin-bottom: 10%;
+    }
+  
+    figure.snip1157 ,  .flex ,
+    figure.snip1157 blockquote .heading{
+      display: block;
+      width: 90%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    .flex{
+      margin-left: 10%;
+      margin-bottom: 40%;
+    }
+  
+  }
+  @media (width: 768px) {
+  
+    .flex{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    .heading {
+        margin-bottom: 3%;
+    }
+  }
    /*Statistics styling*/
    .row{
     width: 85%;
@@ -651,7 +757,7 @@ button, input {
   .row{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 33%;
+    margin-top: 39%;
     gap: 30px;
   }
   .col{
