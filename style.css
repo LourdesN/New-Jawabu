@@ -390,6 +390,7 @@ button, input {
   .background {
     display: flex;
     width: 976px;
+    margin-top: 18%;
   }
   
   .containers {
@@ -522,7 +523,10 @@ button, input {
     width: 150px;
     margin-bottom: 40px;
     margin-left: 0;
-    margin: 0;
+    margin-top: 130%;
+  }
+  .app-form-button{
+    margin-top: 2%;
   }
   .app-form-group, .app-contact {
     width: 150px;
@@ -751,7 +755,7 @@ button, input {
    
   }
 .counter-box {
-    width: 170px;
+    width: 160px;
 
 }
   .row{
@@ -778,7 +782,7 @@ button, input {
     text-align: left;
     font: bold 16px sans-serif;
     padding: 15px 10px;
-    margin-top: 18%;
+    margin-top: 1%;
     width: 1134px;
   }
   
@@ -1008,18 +1012,20 @@ button, input {
     .footer-distributed{
         width: 200px;
         max-width: fit-content;
-        margin-top: 77%;
+        margin-top: 1%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);     
     }
    .footer-right .footer-company-about{
         width: 350px;
         text-align: center;
         display: block;
         max-width: fit-content;
-        margin-left: 3%;
+        margin-left: 2%;
     }
   
-    .footer-distributed .footer-center i{
-      margin-left: 0;
+    .footer-distributed .footer-center{
+        margin-left: 23%;
     }
   
   }
@@ -1046,13 +1052,12 @@ button, input {
       }
      .footer-right .footer-company-about{
           width: 450px;
-          text-align: center;
-          display: block;
           max-width: fit-content;
+          margin-right: 20%;
       }
     
-      .footer-distributed .footer-center i{
-        margin-left: 0;
+      .footer-distributed .footer-center{
+        margin-left: 153%;
       }
     
     }
