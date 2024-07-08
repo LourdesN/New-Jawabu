@@ -178,20 +178,17 @@ body {
     transition: 1s all;
   }
      /*  media queries */
-  
-     @media (max-width: 480px) {
-      
-        .service, .card{
-          display: block;
-          width: 95%;
-          margin-bottom: 20px;
-          margin-left: 5%;
-        }
+@media (max-width: 480px) { 
+    .service, .card{
+        display: block;
+        width: 95%;
+        margin-bottom: 20px;
+        margin-left: 5%;
+    }
     .subtitle{
         text-align: center;
-    }
-      
-      }
+    } 
+}
       @media (width: 768px) {
       
         .service{
@@ -1158,7 +1155,7 @@ button, input {
         max-width: fit-content;
         margin-top: 1%;
         display: grid;
-        grid-template-columns: repeat(1, 1fr);     
+        grid-template-columns: repeat(1, 1fr);   
     }
    .footer-right .footer-company-about{
         width: 350px;
@@ -1166,10 +1163,14 @@ button, input {
         display: block;
         max-width: fit-content;
         margin-left: 2%;
+        margin-right: 12%;
     }
   
     .footer-distributed .footer-center{
-        margin-left: 23%;
+        margin-left: 20%;
+    }
+    .footer-icons{
+     width: 260px;
     }
   
   }
