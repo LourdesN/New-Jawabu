@@ -339,6 +339,16 @@
           const phone = document.getElementById('phone').value;
           const subject = document.getElementById('subject').value;
           const message = document.getElementById('message').value;
+          const toEmail="lourdeswairimu@gmail.com"
+
+          const formData=
+          {
+            "name": name,
+            "email":email,
+            "subject": subject,
+            "message": message,
+            "toEmail": toEmail
+          }
       
           console.log('Full Name:', name);
           console.log('Email:', email);
@@ -347,6 +357,17 @@
           console.log('Message:', message);
       
           // Add further processing or sending logic here
+          fetch("https://flask-email-api.vercel.app/",
+            {
+              method: "POST",
+              headers: 
+              {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(message => console.log(message))
       });
       </script>
 </body>
