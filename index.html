@@ -194,45 +194,48 @@
    <div class="background" id="contact">
     <div class="containers">
         <div class="screen">
-        <div class="screen-body">
-          <div class="screen-body-item left">
-            <div class="app-title">
-              <span>CONTACT US</span>
+            <div class="screen-body">
+                <div class="screen-body-item left">
+                    <div class="app-title">
+                        <span>CONTACT US</span>
+                    </div>
+                    <div class="app-contact">
+                        ADDRESS: Ruiru, Kiambu <br>
+                        CONTACT INFO : +254701691189<br>
+                        EMAIL: jawabumabati@gmail.com
+                    </div>
+                </div>
+                <div class="screen-body-item">
+                    <div class="app-form">
+                        <form id="contactForm">
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Full Name" id="name" name="name">
+                                <small>Error message</small>
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Email" id="email" name="email">
+                                <small>Error message</small>
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Phone Number" id="phone" name="phone">
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Subject" id="subject" name="subject">
+                            </div>
+                            <div class="app-form-group message">
+                                <input class="app-form-control" placeholder="Message" id="message" name="message">
+                                <small>Error message</small>
+                            </div>
+                            <div class="app-form-group buttons">
+                                <button class="app-form-button" type="submit">SEND</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="app-contact"> ADDRESS: Ruiru, Kiambu <br> 
-               CONTACT INFO : +254701691189<br>
-                EMAIL: jawabumabati@gmail.com
-            </div>
-          </div>
-          <div class="screen-body-item">
-            <div class="app-form">
-                <form action="mailto:jawabumabati@gmail.com" enctype="text/plain" method="post" id="form">
-              <div class="app-form-group">
-                <input class="app-form-control" placeholder="Full Name"  id="username" name="name">
-                <small>Error message</small>
-              </div>
-              <div class="app-form-group">
-                <input class="app-form-control" placeholder="Email" id="email" name="email">
-                <small>Error message</small>
-            </div>
-              <div class="app-form-group">
-                <input class="app-form-control" placeholder="Phone Number">
-              </div>
-              <div class="app-form-group message">
-                <input class="app-form-control" placeholder="Message"  id="message" name="message">
-                <small>Error message</small>
-            </div>
-              <div class="app-form-group buttons">
-               
-                <button class="app-form-button">SEND</button>
-              </div>
-            </div>
-          </div>
-        </form>
+        </div>
     </div>
 </div>
-</div> 
-</div>  
 <!-- footer section-->
 <footer class="footer-distributed">
 
@@ -327,5 +330,24 @@
   </footer>
     </main>
     <script src="./script.js"></script>
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form from submitting the traditional way
+      
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+          const subject = document.getElementById('subject').value;
+          const message = document.getElementById('message').value;
+      
+          console.log('Full Name:', name);
+          console.log('Email:', email);
+          console.log('Phone Number:', phone);
+          console.log('Subject:', subject);
+          console.log('Message:', message);
+      
+          // Add further processing or sending logic here
+      });
+      </script>
 </body>
 </html>
