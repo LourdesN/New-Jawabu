@@ -336,12 +336,12 @@
       const sendEmail = event => 
       {
         event.preventDefault();
-        const name = document.getElementById('name').value
-        const email = document.getElementById('email').value
-        const phone = document.getElementById('phone').value
-        const subject = document.getElementById('subject').value
-        const message = document.getElementById('message').value
-        const toEmail="lourdeswairimu@gmail.com"
+        let name = document.getElementById('name').value
+        let email = document.getElementById('email').value
+        let phone = document.getElementById('phone').value
+        let subject = document.getElementById('subject').value
+        let message = document.getElementById('message').value
+        let toEmail="lourdeswairimu@gmail.com"
 
         const formData=
         {
@@ -380,7 +380,11 @@
                 className: "success",
                 duration: 3000,
             }).showToast()
-            form.reset()
+            name.value=""
+            email.value=""
+            phone.value=""
+            subject.value=""
+            message.value=""
           }
           else
           {
