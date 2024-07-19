@@ -209,7 +209,7 @@
                 </div>
                 <div class="screen-body-item">
                     <div class="app-form">
-                        <form id="contactForm">
+                        <form id="contactForm" onsubmit="sendEmail(event)">
                             <div class="app-form-group">
                                 <input class="app-form-control" placeholder="Full Name" id="name" name="name">
                                 <small>Error message</small>
@@ -333,31 +333,32 @@
     </main>
     <script src="./script.js"></script>
     <script>
-      document.getElementById('contactForm').addEventListener('submit', function(event) 
+      const sendEmail = event => 
       {
         event.preventDefault(); // Prevent form from submitting the traditional way
-    
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        const toEmail="lourdeswairimu@gmail.com"
+        const form=document.getElementById("contactForm")
+        const formData=new FormData(form)
+        // const name = document.getElementById('name').value;
+        // const email = document.getElementById('email').value;
+        // const phone = document.getElementById('phone').value;
+        // const subject = document.getElementById('subject').value;
+        // const message = document.getElementById('message').value;
+        // const toEmail="lourdeswairimu@gmail.com"
 
-        const formData=
-        {
-          "name": name,
-          "email":email,
-          "subject": subject,
-          "message": message,
-          "toEmail": toEmail
-        }
+        // const formData=
+        // {
+        //   "name": name,
+        //   "email":email,
+        //   "subject": subject,
+        //   "message": message,
+        //   "toEmail": toEmail
+        // }
     
-        console.log('Full Name:', name);
-        console.log('Email:', email);
-        console.log('Phone Number:', phone);
-        console.log('Subject:', subject);
-        console.log('Message:', message);
+        // console.log('Full Name:', name);
+        // console.log('Email:', email);
+        // console.log('Phone Number:', phone);
+        // console.log('Subject:', subject);
+        // console.log('Message:', message);
     
         // Add further processing or sending logic here
         fetch("https://flask-email-api.vercel.app/send-email",
@@ -372,8 +373,8 @@
         .then(response => response.json())
         .then(message => 
         {
-          message.success
-          ?
+          if(message.success)
+          {
             Toastify(
             {
                 text: message.success,
@@ -381,7 +382,10 @@
                 className: "success",
                 duration: 3000,
             }).showToast()
-          :
+            form.reset()
+          }
+          else
+          {
             Toastify(
             {
                 text: message.error,
@@ -389,8 +393,26 @@
                 className: "error",
                 duration: 3000,
             }).showToast()
+          }
+          // message.success
+          // ?
+          //   Toastify(
+          //   {
+          //       text: message.success,
+          //       backgroundColor: "green",
+          //       className: "success",
+          //       duration: 3000,
+          //   }).showToast()
+          // :
+          //   Toastify(
+          //   {
+          //       text: message.error,
+          //       backgroundColor: "red",
+          //       className: "error",
+          //       duration: 3000,
+          //   }).showToast()
         })
-      });
+      }
       </script>
 </body>
 </html>
