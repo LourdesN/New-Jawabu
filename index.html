@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" crossorigin="anonymous">
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </head>
 <body  onload="load()">
         
     <!--Nav bar-->
@@ -331,43 +333,63 @@
     </main>
     <script src="./script.js"></script>
     <script>
-      document.getElementById('contactForm').addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent form from submitting the traditional way
-      
-          const name = document.getElementById('name').value;
-          const email = document.getElementById('email').value;
-          const phone = document.getElementById('phone').value;
-          const subject = document.getElementById('subject').value;
-          const message = document.getElementById('message').value;
-          const toEmail="lourdeswairimu@gmail.com"
+      document.getElementById('contactForm').addEventListener('submit', function(event) 
+      {
+        event.preventDefault(); // Prevent form from submitting the traditional way
+    
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        const toEmail="lourdeswairimu@gmail.com"
 
-          const formData=
+        const formData=
+        {
+          "name": name,
+          "email":email,
+          "subject": subject,
+          "message": message,
+          "toEmail": toEmail
+        }
+    
+        console.log('Full Name:', name);
+        console.log('Email:', email);
+        console.log('Phone Number:', phone);
+        console.log('Subject:', subject);
+        console.log('Message:', message);
+    
+        // Add further processing or sending logic here
+        fetch("https://flask-email-api.vercel.app/send-email",
+        {
+          method: "POST",
+          headers: 
           {
-            "name": name,
-            "email":email,
-            "subject": subject,
-            "message": message,
-            "toEmail": toEmail
-          }
-      
-          console.log('Full Name:', name);
-          console.log('Email:', email);
-          console.log('Phone Number:', phone);
-          console.log('Subject:', subject);
-          console.log('Message:', message);
-      
-          // Add further processing or sending logic here
-          fetch("https://flask-email-api.vercel.app/send-email",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(message => 
+        {
+          message.success
+          ?
+            Toastify(
             {
-              method: "POST",
-              headers: 
-              {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(message => console.log(message))
+                text: message.success,
+                backgroundColor: "green",
+                className: "success",
+                duration: 3000,
+            }).showToast()
+          :
+            Toastify(
+            {
+                text: message.error,
+                backgroundColor: "red",
+                className: "error",
+                duration: 3000,
+            }).showToast()
+        })
       });
       </script>
 </body>
